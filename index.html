@@ -1,0 +1,34 @@
+<html>
+  <head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        var $chkboxes = $('.chkbox');
+        var lastChecked = typeof lastChecked === 'undefined'?false:lastChecked;
+        $chkboxes.click(function(event) {
+            if(!lastChecked) {
+                lastChecked = this;
+                return;
+            }
+            if(event.shiftKey) {
+                var start = $chkboxes.index(this);
+                var end = $chkboxes.index(lastChecked);
+                $chkboxes.slice(Math.min(start,end), Math.max(start,end)+ 1).attr('checked', lastChecked.checked);
+            }
+            lastChecked = this;
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <input type="checkbox" id="id_chk1" class="chkbox" value="1">Check 1<br>
+    <input type="checkbox" id="id_chk2" class="chkbox" value="2">Check 2<br>
+    <input type="checkbox" id="id_chk3" class="chkbox" value="3">Check 3<br>
+    <input type="checkbox" id="id_chk4" class="chkbox" value="4">Check 4<br>
+    <input type="checkbox" id="id_chk5" class="chkbox" value="5">Check 5<br>
+    <input type="checkbox" id="id_chk6" class="chkbox" value="6">Check 6<br>
+    <input type="checkbox" id="id_chk7" class="chkbox" value="7">Check 7<br>
+  </body>
+</html>
