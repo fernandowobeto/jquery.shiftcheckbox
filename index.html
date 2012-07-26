@@ -3,22 +3,10 @@
     <title></title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script src="jquery.shiftcheckbox.js"></script>
     <script type="text/javascript">
-      $(document).ready(function() {
-        var $chkboxes = $('.chkbox');
-        var lastChecked = typeof lastChecked === 'undefined'?false:lastChecked;
-        $chkboxes.click(function(event) {
-            if(!lastChecked) {
-                lastChecked = this;
-                return;
-            }
-            if(event.shiftKey) {
-                var start = $chkboxes.index(this);
-                var end = $chkboxes.index(lastChecked);
-                $chkboxes.slice(Math.min(start,end), Math.max(start,end)+ 1).attr('checked', lastChecked.checked);
-            }
-            lastChecked = this;
-        });
+      $(document).ready(function(){
+        $('.chkbox').shiftcheckbox();
       });
     </script>
   </head>
